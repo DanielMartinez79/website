@@ -1,0 +1,18 @@
+{
+  "name": "tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jquery-3.3.1.js",
+  "dependencies": {
+    "developer": "^1.0.0",
+    "edition": "0.0.1",
+    "firefox": "0.0.1",
+    "set-default-browser": "^1.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
