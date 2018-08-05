@@ -6,8 +6,9 @@ http.createServer(function (req, res) {
 	
 	var q = url.parse(req.url, true);
 	var file = "." + q.pathname;
-	console.log(file);
-	var type = '';
+	if (file == "./"){
+		file = "index.html";
+	}
 	fs.readFile(file, function(err,data) {
 		if (file.indexOf('.css') != -1) {
 			type = 'text/css';
