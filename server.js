@@ -1,10 +1,21 @@
 var fs = require('fs');
 var http = require('http');
+var url = require('url');
 
 http.createServer(function (req, res) {
-	fs.readfile('index.html', function(err,data) {
-		res.writeHead(200, {'Content-Type': 'text/html'});
+	
+	var q = url.parse(req.url, true);
+	var file = "." + q.pathname;
+	console.log(file);
+	var type = '';
+	fs.readFile(file, function(err,data) {
+		if (file.indexOf('.css') != -1) {
+			type = 'text/css';
+		} else {
+			type = 'text/html';
+		}
+		res.writeHead(200, {'Content-Type': type});
 		res.write(data);
 		res.end();
-	});
+	}); 
 }).listen(8080);
