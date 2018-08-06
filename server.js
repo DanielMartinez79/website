@@ -15,6 +15,10 @@ http.createServer(function (req, res) {
 		} else {
 			type = 'text/html';
 		}
+		if (err) {
+			res.writeHead(404, {'Content-Type': 'text/html'});
+			return res.end("404");
+		}
 		res.writeHead(200, {'Content-Type': type});
 		res.write(data);
 		res.end();
