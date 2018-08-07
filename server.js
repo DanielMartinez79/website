@@ -8,13 +8,12 @@ http.createServer(function (req, res) {
 	var file = "." + q.pathname;
 	if (file == "./"){
 		file = "index.html";
+	} else if (file.indexOf('.css') != -1) {
+		type = 'text/css';
+	} else {
+		type = 'text/html';
 	}
 	fs.readFile(file, function(err,data) {
-		if (file.indexOf('.css') != -1) {
-			type = 'text/css';
-		} else {
-			type = 'text/html';
-		}
 		if (err) {
 			res.writeHead(404, {'Content-Type': 'text/html'});
 			return res.end("404");
