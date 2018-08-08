@@ -28,8 +28,23 @@ body {
 
 ul > li {
     margin:3px;
-    padding:0px;
 }
+.content {
+    margin:0 10%
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.column {
+    width:50%;
+    flex: inherit;
+ }
+
+ .row h2 {
+     display: block;
+ }
 
 p {
     text-align: justify;
@@ -38,21 +53,43 @@ p {
     margin: 10px
 }
    
+ h3 {
+     margin:0
+ }
+
+ h4 {
+     margin:0
+ }
+
+.current {
+    background-color:white;
+}
+
+
+
+
+
+
+
+
+
 #sidebar {
     background-color: rgb(230, 230, 230);
     margin:0;
     padding:0;
-    width:15%;
+    width:120px;
     list-style-type: none;
     height:100%;
     position: fixed;
     font-size: 14px;
 }
- h3 {
-     margin:4px 20px
- }
 
- #sidebar ul {
+#sidebar ~div {
+    margin-left: 17%;
+
+}
+
+#sidebar ul {
     padding:0;
      
  }
@@ -70,23 +107,3 @@ p {
  #sidebar li:hover {
      background-color: rgb(280, 280, 280)
  }
-
- #sidebar a {
- }
-
-.current {
-    background-color:white;
-}
-
-.flex {
-    display: flex;
-}
-
-#sidebar ~div {
-    margin-left: 17%;
-
-}
-
-
-
-

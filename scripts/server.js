@@ -8,10 +8,11 @@ http.createServer(function (req, res) {
 	var file = "." + q.pathname;
 	if (file == "./"){
 		file = "index.html";
-	} else if (file.indexOf('.css') != -1) {
+	}
+
+	var type = 'text/html';
+	if (file.indexOf('.css') != -1) {
 		type = 'text/css';
-	} else {
-		type = 'text/html';
 	}
 	fs.readFile(file, function(err,data) {
 		if (err) {
