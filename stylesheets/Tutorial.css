@@ -42,9 +42,7 @@ ul > li {
     flex: inherit;
  }
 
- .row h2 {
-     display: block;
- }
+
 
 p {
     text-align: justify;
