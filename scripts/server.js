@@ -13,7 +13,7 @@ http.createServer(function (req, res) {
 	var type = 'text/html';
 	if (file.indexOf('.css') != -1) {
 		type = 'text/css';
-	}
+	} 
 	fs.readFile(file, function(err,data) {
 		if (err) {
 			res.writeHead(404, {'Content-Type': 'text/html'});
