@@ -1,10 +1,11 @@
-body {
-    margin:0;
-    background: hsla(120, 50%, 40%, 0.6)
+* {
+    box-sizing: border-box;
 }
-
-.content {
-    margin: 0 3%;
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background: hsla(120, 50%, 40%, 0.6)
 }
 
 p {
@@ -26,6 +27,7 @@ h1,h2,h3,h4,h5,h6{
     background: linear-gradient(to bottom right, hsla(219, 45%, 49%, 1.0),hsla(192, 55%, 50%, 0.6) );
     margin: 1%;
     padding: 10px;
+    overflow: hidden;
     animation-name: grow;
     animation-duration: 2s;
 }
@@ -36,37 +38,37 @@ h1,h2,h3,h4,h5,h6{
 }
 
 a {
-    color:hsla(130, 90%, 50%, 1);
+    color:hsla(140, 90%, 50%, 1);
 }
 
 @media screen and (min-width:600px) {
-    ul > li {
-        margin:3px 0;
-    }
 
-    .row {
+    body{
+        margin:0;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+
+    .flexrow {
         display: flex;
         flex-direction: row;
-    
     }
 
     .column2 {
-        width:50%;
         flex: inherit;
-        
+        width:48%
     }
+
     
     .column3 {
-        width:33%;
+        width: 31%;
         flex:inherit;
     }
 
-    .current {
-        background-color:white;
+    ul {
+        padding: 3%;
     }
 
-    ul {
-        margin: 0;
-        padding: 10px;
-    }
 }
