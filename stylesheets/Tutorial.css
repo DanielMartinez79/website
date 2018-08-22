@@ -1,11 +1,10 @@
 body {
     margin:0;
-    background: hsla(0, 35%, 30%, 0.3)
+    background: hsla(120, 50%, 40%, 0.6)
 }
 
 .content {
     margin: 0 3%;
-    
 }
 
 p {
@@ -22,9 +21,9 @@ h1,h2,h3,h4,h5,h6{
 
 .bubble {
     border-radius: 30px; 
-    color: hsla(40, 100%, 75%, 1);
+    color: hsla(35, 70%, 80%, 1);
     font-family: 'Courier New', Courier, monospace;
-    background: linear-gradient(to bottom right, hsla(219, 85%, 49%, 1.0),hsla(192, 85%, 58%, 1.0) );
+    background: linear-gradient(to bottom right, hsla(219, 45%, 49%, 1.0),hsla(192, 55%, 50%, 0.6) );
     margin: 1%;
     padding: 10px;
     animation-name: grow;
@@ -34,12 +33,10 @@ h1,h2,h3,h4,h5,h6{
 @keyframes grow {
     from {transform: scale(0,0)}
     to {transform: scale(1,1)}
-
 }
 
 a {
-    color:hsla(140, 80%, 60%, 1);
-
+    color:hsla(130, 90%, 50%, 1);
 }
 
 @media screen and (min-width:600px) {
@@ -62,7 +59,6 @@ a {
     .column3 {
         width:33%;
         flex:inherit;
-        margin: 0 1%;
     }
 
     .current {
@@ -71,6 +67,6 @@ a {
 
     ul {
         margin: 0;
-        padding: 5px;
+        padding: 10px;
     }
 }
