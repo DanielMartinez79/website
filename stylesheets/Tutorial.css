@@ -1,63 +1,50 @@
 body {
     margin:0;
-}
-
-#nav_bar {
-    background-color: orange;
-    list-style-type: none;
-    padding: 0;
-    margin:0;
-    overflow: hidden;
-
-}
-
-#nav_bar li:hover:not(.current) {
-    background-color: orangered;
-}
-
-#nav_bar li {
-    float: top;
-    padding:0;
-    margin:0;
-}
-
-#nav_bar a {
-    display: block;
-    text-decoration: none;
-    color:black;
-    text-align: center;
-    padding:6px
+    background: hsla(0, 35%, 30%, 0.3)
 }
 
 .content {
-    margin: 0 5%;
+    margin: 0 3%;
+    
 }
 
 p {
     text-align: justify;
     text-indent: 24px;
     line-height: 20px;
-
+    margin:10px;
 }
 
 h1,h2,h3,h4,h5,h6{
-    margin:10px 0;
+    text-align: center;
+    margin:8px 0;
 }
 
+.bubble {
+    border-radius: 30px; 
+    color: hsla(40, 100%, 75%, 1);
+    font-family: 'Courier New', Courier, monospace;
+    background: linear-gradient(to bottom right, hsla(219, 85%, 49%, 1.0),hsla(192, 85%, 58%, 1.0) );
+    margin: 1%;
+    padding: 10px;
+    animation-name: grow;
+    animation-duration: 2s;
+}
 
+@keyframes grow {
+    from {transform: scale(0,0)}
+    to {transform: scale(1,1)}
 
+}
+
+a {
+    color:hsla(140, 80%, 60%, 1);
+
+}
 
 @media screen and (min-width:600px) {
-    #nav_bar li {
-        float: left;
-    }
-
-    #nav_bar a{
-        padding: 12px;
-    }
-
     ul > li {
-        margin:3px;
+        margin:3px 0;
     }
 
     .row {
@@ -66,15 +53,24 @@ h1,h2,h3,h4,h5,h6{
     
     }
 
-    .column {
+    .column2 {
         width:50%;
         flex: inherit;
-        margin:0;
         
     }
     
+    .column3 {
+        width:33%;
+        flex:inherit;
+        margin: 0 1%;
+    }
 
     .current {
         background-color:white;
+    }
+
+    ul {
+        margin: 0;
+        padding: 5px;
     }
 }
