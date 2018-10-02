@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get Swole or Die Tryin</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="./scripts/jquery-3.3.1.js"></script>
+    <script src="./scripts/funcs.js"></script>
+    <script src="./scripts/ajax.js"></script>
+</head>
+<body>
+    <form>
+    <input type="button" value="View Progress" onclick="showProg()" id="prog">
+    <input type="button" value="Delete Progress" onclick="dropAJAX()">
+</form>
+
+<p id="test"> </p>
+    <form id="exerciseForm"> Enter exercise name: <input type="text" name="exercise" id = "exerciseInput"> <br> 
+        <input type="button" value="Add" onclick="addExerciseDisplay(exercise.value)"> </form>
+    <form id="exerciseList"> </form> <input type="button" id="reset" value="Reset" onclick="reset(this, 'exerciseList')">
+</body>
+</html>

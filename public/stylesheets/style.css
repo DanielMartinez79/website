@@ -1,0 +1,42 @@
+#reset {
+    display: none;
+}
+
+body {
+    text-align: center;
+}
+
+#exerciseForm {
+    margin:20px;
+
+}
+
+li {
+    list-style-type: none;
+
+}
+
+.set{
+    margin: 4px;
+    width: 50px;
+    
+} 
+
+input[type="button"] {
+    margin:5px 10px;
+}
+
+input[type="number"] {
+    width: 40px;
+    -moz-appearance: textfield;
+}
+
+input[type = "range"] {
+    width: 120px;
+}
+
+.blackout{
+    background-color: lightgrey
+    
+}
+
