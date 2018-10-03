@@ -1,6 +1,7 @@
 function addExerciseDisplay(val){
     if (checkRepeat(val) & checkEmpty(val)){
         checkForSub()
+        document.getElementById("reset").style.display="inline"
         var components = createExerciseComponents()
         var container = assembleComponents(components)
         document.getElementById("exerciseList").appendChild(container)
@@ -114,6 +115,7 @@ function assembleComponents(collection){
     for (i in collection){
         container.appendChild(collection[i])
     }
+    container.className = "exerciseContainer"
     return container
 }
 
@@ -210,7 +212,7 @@ function updateReps(){
     return false;
 }
 function checkRepeat(val){
-    var coll = document.getElementById("exerciseList").getElementsByClassName("exercise_name");
+    var coll = document.getElementById("exerciseList").getElementsByClassName("exerciseName");
     var i;
     for (i = 0; i < coll.length; i++) {
         if (coll[i].innerText.includes(val)) {
