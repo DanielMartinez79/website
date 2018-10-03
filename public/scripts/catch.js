@@ -52,7 +52,7 @@ router.get("/exercise", function(req,res) {
                 return console.log("get error");
             }
             console.log(`${row.name} ${row.setnum} ${row.reps} ${row.weight} ${row.date}`) 
-            res.write(`${row.name} ${row.setnum} ${row.reps} ${row.weight} ${row.date}\n`)
+            res.write(`<tr><td>${row.name}</td><td> ${row.setnum}</td><td> ${row.reps}</td><td> ${row.weight} </td><td>${row.date}</td></tr>`)
         });
     });
 

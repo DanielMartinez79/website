@@ -186,7 +186,8 @@ function replaceProg(){
 }
 
 function showProg(){
-    var progList = document.createElement("p")
+    var progList = document.createElement("table")
+    progList.innerHTML = "<tr><th>Name</th><th>Set</th><th>Reps</th><th>Weight</th><th>Date</th></tr>"
     progList.id = "progress"
     toggle =  document.getElementById("prog")
     toggle.parentNode.insertAdjacentElement("afterend", progList)
@@ -234,4 +235,17 @@ function checkEmpty(val) {
         return false;
 
     } else return true;
+}
+
+function progressTable(){
+    document.getElementById("")
+}
+
+function preventEnter() {
+    document.getElementById("exerciseForm").onkeypress = function(e){
+        if (e.keyCode == 13){
+            e.preventDefault()
+            addExerciseDisplay(document.getElementById("exerciseInput").value)
+        }
+    }
 }

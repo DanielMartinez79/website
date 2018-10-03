@@ -10,7 +10,7 @@ function queryAJAX() {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200){
             console.log(this.responseText)
-            document.getElementById("progress").innerText = this.responseText;
+            document.getElementById("progress").innerHTML += this.responseText;
         }
     }
     xhttp.open("GET", "db/exercise");
