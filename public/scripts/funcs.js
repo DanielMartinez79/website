@@ -83,6 +83,7 @@ function configureExerciseComponents(name, range, display, reps, sub){
 
 /*Links the weight range and weight display together */
 function marryWeight(range, display){
+    display.innerText = "Weight: " + range.value
     range.oninput = onInputRange(display)
 }
 
@@ -99,6 +100,7 @@ function configureRepInput(reps, num){
     reps.placeholder = "Set " + num
     reps.name = num
     reps.oninput = onInputReps(reps)
+    
 }
 
 /*Sets the id and value of the submit button*/
@@ -122,6 +124,7 @@ function assembleComponents(collection){
 /*Links the submit button wit the rep input */
 function marrySubReps(sub, reps){
     sub.onclick = onclickSub(reps)
+    preventEnter(reps, sub)
 }
 
 /*This onclick function links the submission button to the 
@@ -170,7 +173,7 @@ function onInputReps(inp){
 /*This function displayes the weight range's value on the display argument*/
 function onInputRange(dis){
     return function () {
-        dis.innerText = this.value
+        dis.innerText = "Weight: " + this.value
     }
 }
 
@@ -237,15 +240,65 @@ function checkEmpty(val) {
     } else return true;
 }
 
-function progressTable(){
-    document.getElementById("")
-}
-
-function preventEnter() {
-    document.getElementById("exerciseForm").onkeypress = function(e){
+function preventEnter(inp, sub) {
+    inp.onkeypress = function(e){
         if (e.keyCode == 13){
             e.preventDefault()
-            addExerciseDisplay(document.getElementById("exerciseInput").value)
+            sub.onclick()
         }
     }
+}
+
+function createOptions(){
+    var min = document.createElement("input")
+    var max = document.createElement("input")
+    var sub = document.createElement("input")
+    min.type = "number"
+    min.placeholder="Minimum"
+    max.placeholder="Maximum"
+    max.type = "number"
+    sub.type = "button"
+    sub.value="Save Changes"
+    sub.onclick = submitChanges(min, max)
+    var container = document.createElement("div")
+    container.appendChild(min)
+    container.appendChild(max)
+    container.appendChild(sub)
+    container.id = "optionsMenu"
+    return container
+
+}
+function options(){
+
+}
+
+function submitChanges(min ,max){
+    return function(){
+        var ranges = document.querySelectorAll("input[type=range]")
+        if (ranges != null){
+            console.log(ranges, min, max)
+            for (i in ranges){
+                configureWeightRange(ranges[i], min.value, max.value)
+            }
+        }
+    }
+}
+
+function addOptionsMenu(){
+
+    opt = document.getElementById("optionsButton")  
+    opt.parentNode.insertAdjacentElement("afterend", createOptions())
+    opt.onclick = toggleOptions
+    
+
+}
+
+function toggleOptions(){
+    target = document.getElementById("optionsMenu")
+    if (target.style.display === "none"){
+        target.style.display = "block"
+    } else {
+        target.style.display ="none"
+    }
+
 }

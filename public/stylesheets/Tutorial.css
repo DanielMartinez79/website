@@ -38,7 +38,9 @@ h1,h2,h3,h4,h5,h6{
 }
 
 a {
-    color:hsla(140, 90%, 50%, 1);
+    background-color: white;
+    font-weight: bold;
+    color:hsla(260, 80%, 50%, 1);
 }
 
 @media screen and (min-width:600px) {

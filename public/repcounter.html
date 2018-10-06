@@ -11,10 +11,10 @@
 <body>
     <div id="UI">
         <form id="buttons"> <input type="button" value="View Progress" onclick="showProg()" id="prog"> <input type="button" value="Delete Progress"
-                onclick="dropAJAX()"> </form>
-        <form id="exerciseForm"> Enter exercise name: <input type="text" name="exercise" id="exerciseInput"> <br> <input type="button" value="Add"
+                onclick="dropAJAX()"><input type="button" value="Options" id="optionsButton" onclick="addOptionsMenu()"> </form>
+        <form id="exerciseForm"> Enter exercise name: <input type="text" name="exercise" id="exerciseInput"> <br> <input type="button"  id="AddButton" value="Add"
                 onclick="addExerciseDisplay(exercise.value)"> </form>
     </div>
     <form id="exerciseList"> </form> <input type="button" id="reset" value="Reset" onclick="reset(this, 'exerciseList')"> </body>
-    <script> preventEnter()</script>
+    <script> preventEnter(document.getElementById("exerciseForm"), document.getElementById("AddButton"))</script>
 </html>
