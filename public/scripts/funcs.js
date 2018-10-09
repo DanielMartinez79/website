@@ -56,6 +56,8 @@ function createSubmit(){
     var sub = document.createElement("input")
     sub.type = "button"
     sub.className = "submit"
+    sub.value = "Submit"
+    sub.id = "sub"
     return sub
 }
 
@@ -76,7 +78,6 @@ function createExerciseComponents(){
 function configureExerciseComponents(name, range, display, reps, sub){
     configureWeightRange(range, 0, 100)
     configureRepInput(reps, 1)
-    configureSubmit(sub)
     marryWeight(range, display)
     marrySubReps(sub, reps)
 }
@@ -103,12 +104,6 @@ function configureRepInput(reps, num){
     
 }
 
-/*Sets the id and value of the submit button*/
-function configureSubmit(sub){
-    sub.value = "Submit"
-    sub.id = "sub"
-
-}
 
 /*Assembles the elements in the collection argument
 and packs them into a list element*/
@@ -177,23 +172,33 @@ function onInputRange(dis){
     }
 }
 
+function removeProgressTable() {
+    this.value = "Progress"
+    target =  document.getElementById("progress")
+    target.parentNode.removeChild(target)
+    this.onclick = showProg
+}
+
 function replaceProg(){
     button = document.getElementById("prog")
     button.value = "Hide Progress"
-    button.onclick = function() {
-        this.value = "View Progress"
-        target =  document.getElementById("progress")
-        target.parentNode.removeChild(target)
-        this.onclick = showProg
-    }
+    button.onclick = removeProgressTable
 }
 
 function showProg(){
+    var div = document.createElement("div")
     var progList = document.createElement("table")
+    var delProg = document.createElement("input")
+    delProg.type = "button"
+    delProg.onclick = dropAJAX
+    delProg.value = "Delete Progress"
     progList.innerHTML = "<tr><th>Name</th><th>Set</th><th>Reps</th><th>Weight</th><th>Date</th></tr>"
-    progList.id = "progress"
+    div.id = "progress"
+    progList.id = "progList"
+    div.appendChild(progList)
+    div.appendChild(delProg)
     toggle =  document.getElementById("prog")
-    toggle.parentNode.insertAdjacentElement("afterend", progList)
+    toggle.parentNode.insertAdjacentElement("afterend", div)
     replaceProg()
     queryAJAX()
 }
@@ -219,7 +224,7 @@ function checkRepeat(val){
     var coll = document.getElementById("exerciseList").getElementsByClassName("exerciseName");
     var i;
     for (i = 0; i < coll.length; i++) {
-        if (coll[i].innerText.includes(val)) {
+        if (coll[i].innerText === val) {
             alert("Duplicate");
             return false;
         } 
@@ -253,23 +258,21 @@ function createOptions(){
     var min = document.createElement("input")
     var max = document.createElement("input")
     var sub = document.createElement("input")
+    var label = document.createTextNode("Weight Range: ")
     min.type = "number"
-    min.placeholder="Minimum"
-    max.placeholder="Maximum"
+    min.placeholder="Min"
+    max.placeholder="Max"
     max.type = "number"
     sub.type = "button"
     sub.value="Save Changes"
     sub.onclick = submitChanges(min, max)
     var container = document.createElement("div")
+    container.appendChild(label)
     container.appendChild(min)
     container.appendChild(max)
     container.appendChild(sub)
     container.id = "optionsMenu"
     return container
-
-}
-function options(){
-
 }
 
 function submitChanges(min ,max){
@@ -289,8 +292,6 @@ function addOptionsMenu(){
     opt = document.getElementById("optionsButton")  
     opt.parentNode.insertAdjacentElement("afterend", createOptions())
     opt.onclick = toggleOptions
-    
-
 }
 
 function toggleOptions(){
@@ -300,5 +301,4 @@ function toggleOptions(){
     } else {
         target.style.display ="none"
     }
-
 }

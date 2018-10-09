@@ -49,7 +49,7 @@ router.get("/exercise", function(req,res) {
         
         db.each("SELECT * FROM exercises", function(err, row) {
             if (err) {
-                return console.log("get error");
+                return console.log(err.message);
             }
             console.log(`${row.name} ${row.setnum} ${row.reps} ${row.weight} ${row.date}`) 
             res.write(`<tr><td>${row.name}</td><td> ${row.setnum}</td><td> ${row.reps}</td><td> ${row.weight} </td><td>${row.date}</td></tr>`)
