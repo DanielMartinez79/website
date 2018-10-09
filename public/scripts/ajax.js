@@ -2,6 +2,7 @@ function sendAJAX(obj) {
     var xhttp = new XMLHttpRequest();
     xhttp.open("POST", "db/exercise");
     xhttp.setRequestHeader("Content-type", "application/json");
+    console.log("sending")
     xhttp.send(obj);
 }
 
