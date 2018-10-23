@@ -1,5 +1,87 @@
-#reset {
-    display: none;
+* {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+#bar .tooltip {
+    position: relative;
+}
+
+#bar .tip {
+    font-size: 18px;
+    visibility: hidden;
+    position: absolute;
+    width: 100px;
+    z-index: 1;
+    top: 125%;
+    left: -25px;
+    background-color:dodgerblue;
+    text-align: center;
+    border-radius: 5px;
+}
+
+#bar .tooltip:hover .tip {
+    visibility: visible
+}
+
+#mainDisplay{
+    display: flex;
+    position: absolute;
+    margin: 0 10%;
+    width: 80%;
+    color:dodgerblue;
+    z-index: 1;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.flexCol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%
+}
+
+.toggleOn{
+    display: inherit;
+}
+
+.toggleOff{
+    display: none
+}
+
+#bar {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+
+#bar i {
+    font-size: 20px;
+    display: inherit;
+    flex-direction: column;
+}
+
+#bar li {
+    padding:2px 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-top: 0;
+    border-right: 0;
+}
+
+#bar li:last-child{
+    border-right-style: solid;
+    border-right-width: 2px;
 }
 
 body {
@@ -7,7 +89,7 @@ body {
     margin: 0;
     text-align: center;
     background-color:  steelblue;
-    color: white
+    color: white;
 }
 
 li {
@@ -108,11 +190,12 @@ input[type="number"] {
     box-sizing: border-box;
 }
 
-#progress table{
+#progressTable{
     font-size: 30px;
     width: 90%;
     margin-left: 5%;
-    margin-right: 5%
+    margin-right: 5%;
+    
 }
 
 
@@ -121,6 +204,11 @@ input[type="number"] {
 }
 
 @media screen and (min-width: 1000px){
+
+    #mainDisplay p {
+        padding: 2%;
+        margin: 0;
+    }
 
     input[type="button"] {
         width: 25%;
@@ -133,19 +221,20 @@ input[type="number"] {
         font-size: 20px;
     }
 
-    #progress table{
-        font-size: 18px;
+    #progressTable{
+        font-size: 20px;
     }
 
-    input[type="number"], input[type="text"] {
+    input[type="text"] {
         width: 15%;
-        -moz-appearance: textfield;
         padding: 4px;
         font-size: 16px;
     }
 
-    .exerciseContainer input[type="number"] {
-        width:5%
+    input[type="number"] {
+        width:8%;
+        -moz-appearance: textfield;
+        font-size: 16px;
     }
 
     #sub {
@@ -176,10 +265,10 @@ input[type="number"] {
         background-color: dodgerblue
     }
 
-    #progress table{
-        font-size: 20px;
-        width: 40%;
-        margin-left: 30%;
-        margin-right: 30%
+
+
+    #bar i {
+        font-size: 30px;
+        padding:0  8px;
     }
 }

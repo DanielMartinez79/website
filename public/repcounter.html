@@ -3,17 +3,46 @@
 <head>
     <title>Get Swole or Die Tryin</title>
     <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="./scripts/jquery-3.3.1.js"></script>
     <script src="./scripts/funcs.js"></script>
     <script src="./scripts/ajax.js"></script>
-    
+    <script src="./scripts/events.js"></script>
 </head>
 <body>
-    <div id="UI">
-        <form id="buttons"> <input type="button" value="Progress" onclick="showProg()" id="prog"><input type="button" value="Options" id="optionsButton" onclick="addOptionsMenu()"> </form>
-        <form id="exerciseForm"> Enter exercise name: <input type="text" name="exercise" id="exerciseInput"> <br> <input type="button"  id="AddButton" value="Add"
-                onclick="addExerciseDisplay(exercise.value)"> </form>
+    <ul id="bar">
+        <li><i id="progressIcon" onclick="showProg()" class="fa fa-line-chart tooltip"><span class="tip">Progress</span></i></li>
+        <li><i id="settingsIcon" onclick="toggle('settings')" class="fa fa-gear tooltip"><span class="tip">Settings</span></i></li>
+        <li><i id="helpIcon" onclick="toggle('help')" class="fa fa-question-circle tooltip"><span class="tip">Help</span></i></li>
+        <li><i id="infoIcon" onclick="toggle('info')" class="fa fa-info tooltip"><span class="tip">Info</span></i></li>
+    </ul>
+    <div id="mainDisplay">
+        <div id="progress" class="toggleOff flexCol"> <i id="closeButton" class="fa fa-close" onclick="toggle(event.currentTarget.parentNode.id)"></i>
+             <table id="progressTable"> </table>
+        </div>
+        <div id="settings" class="toggleOff flexCol">
+            
+                <div class="flexRow">Weight Range: <input placeholder="Min" type="number"><input placeholder="Max" type="number"><input value="Save Changes"
+                        type="button"></div>
+                <div class="flexRow">Delete Progress: <input value="Delete Progress" type="button" onclick="dropAJAX();hideProg()"></div>
+            
+        </div>
+        <div id="help" class="toggleOff flexCol">
+            <p>Welcome to RepCounter! In order to record you workout progress, start by entering the name of the exercise then
+                click on the Add button. Afterwards, use the slider next to the exercise name to specify how much weight
+                you are currently working with. The minimum and maximum weight values can be adjusted in the options menu.
+                Enter how many reps you perform in the Set area and then click the Submit button. If you wish to edit a set,
+                just click on it. enter the correct value and resubmit. </p>
+        </div>
+        <div id="info" class="toggleOff flexCol">
+            <p>This web app was created using JavaScript with jQuery, HTML and CSS on the front end. The back end consists of
+                Node.js, Express and SQLite</p>
+        </div>
     </div>
-    <form id="exerciseList"> </form> <input type="button" id="reset" value="Reset" onclick="reset(this, 'exerciseList')"> </body>
-    <script> preventEnter(document.getElementById("exerciseForm"), document.getElementById("AddButton"))</script>
+    <div id="UI">
+        <form id="exerciseForm"> Enter exercise name: <input type="text" name="exercise" id="exerciseInput"> <br> <input type="button" id="AddButton"
+                value="Add" onclick="addExerciseDisplay(exercise.value)"> </form>
+    </div>
+    <form id="exerciseList"> </form> <input type="button" id="reset" value="Reset" class="toggleOff" onclick="reset(this, 'exerciseList')"> </body>
+<script> $("#exerciseForm").on('keypress', { sub: $("#AddButton") }, preventEnter)</script>
 </html>

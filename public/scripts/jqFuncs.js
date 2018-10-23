@@ -26,7 +26,7 @@ how much weight they are using on their current set */
 function createWeightRange(){
     var range = $(document.createElement("input"))
     .attr('type','range' )
-    .addClass('weightRange')
+    .addClass('weightRange');
     return range
 }
 
@@ -35,7 +35,7 @@ and displays it */
 function createExerciseName(){
     var label = $(document.createElement("h5"))
     .addClass("exerciseName")
-    .text($("#exerciseInput").val())
+    .text($("#exerciseInput").val());
     return label
 }
 
@@ -77,13 +77,14 @@ function createExerciseComponents(){
 
 /*Links the weight range and weight display together */
 function marryWeight(range, display){
-    display.text("Weight: " + $(range).val())
-    range.on('input', {arg: display}, onInputRange)
+    $(display).text("Weight: " + $(range).val())
+    $(range).on('input', {arg: display}, onInputRange)
 }
 
 /*Sets the min and max range values */
 function configureWeightRange(range, low, high){
-    range.attr('min', low)
+    $(range)
+    .attr('min', low)
     .attr('max', high)
 }
 
@@ -91,7 +92,7 @@ function configureWeightRange(range, low, high){
 based on the number passed as argument. 
 Also sets on the onInput function */
 function configureRepInput(reps, num){
-    reps.attr('placeholder', "Set " + num)
+    $(reps).attr('placeholder', "Set " + num)
     .attr('name', num)
     .on('input' ,{arg: reps}, onInputReps)
 }
@@ -103,16 +104,16 @@ function assembleComponents(collection){
     for (i in collection){
         $(container).append(collection[i])
     }
-    container.addClass("exerciseContainer")
+    $(container).addClass("exerciseContainer")
     return container
 }
 
 /*Links the submit button wit the rep input */
 function marrySubReps(sub, reps){
-    sub.unbind()
-    .on("click",{arg: reps}, onclickSub)
-    .on('keypress', {sub: sub}, preventEnter)
+    $(sub).unbind().on("click",{arg: reps}, onclickSub)
+    preventEnter(reps, sub)
 }
+
 
 function addRepInput () {
     inp = $("#currentInput")
@@ -121,34 +122,47 @@ function addRepInput () {
 }
 
 function toggleProgress() {
-    button = $('#progressIcon')
-    if (button.hasClass("toggled")){
-        button.removeClass("toggled")
-        hideProg()
-    } else {
-        button.addClass("toggled")
+    button = $('#prog')
+    if (button.val() === "Progress"){
+        $(button).val("Hide Progress")
         showProg()
+    } else {
+        $(button).val("Progress")
+        hideProg()
     }
 }
 
 function hideProg() {
-    target =  $("#progressTable").html()
-    target.remove()
+    target =  $("#progress")
+    $(target).remove()
 }
 
 function showProg(){
-    toggle('progress')
-    $("#progressTable").html("<tr><th>Name</th><th>Set</th><th>Reps</th><th>Weight</th><th>Date</th></tr>")
-    queryAJAX(fillTable)
+    var div = $(document.createElement("div"))
+    .attr("id", "progress")
+
+    var progList = $(document.createElement("table"))
+    .html("<tr><th>Name</th><th>Set</th><th>Reps</th><th>Weight</th><th>Date</th></tr>")
+    .attr('id', 'progList')
+
+    var delProg = $(document.createElement("input"))
+    .attr("type", "button")
+    .click(dropAJAX)
+    .val("Delete Progress")
+
+    $(div).append(progList, delProg)
+    toggle =  $("#prog")
+    toggle.parent().after(div)
+    queryAJAX()
 }
 
 function createExerciseObject() {
     var inp = $("#currentInput")
     var obj = {
-        "name" : inp.parent().find(".exerciseName").text(), 
-        "set": inp.attr('name'), 
-        "reps": inp.val(), 
-        "weight": inp.parent().find(".weightRange").val() 
+        "name" : $(inp).parent().find(".exerciseName").text(), 
+        "set": $(inp).attr('name'), 
+        "reps": $(inp).val(), 
+        "weight": $(inp).parent().find(".weightRange").val() 
     }
     return obj
 }
@@ -194,6 +208,37 @@ function checkEmpty(val) {
     } else return true;
 }
 
+function preventEnter(inp, sub) {
+    
+    $(inp).unbind('keypress').on('keypress', function(e){
+        if (e.keyCode == 13){
+            e.preventDefault()
+            sub.onclick()
+        }
+    })
+}
+
+function createOptions(){
+    var min = document.createElement("input")
+    var max = document.createElement("input")
+    var sub = document.createElement("input")
+    var label = document.createTextNode("Weight Range: ")
+    min.type = "number"
+    min.placeholder="Min"
+    max.placeholder="Max"
+    max.type = "number"
+    sub.type = "button"
+    sub.value="Save Changes"
+    sub.onclick = submitChanges(min, max)
+    var container = document.createElement("div")
+    container.appendChild(label)
+    container.appendChild(min)
+    container.appendChild(max)
+    container.appendChild(sub)
+    container.id = "optionsMenu"
+    return container
+}
+
 function submitChanges(min ,max){
     return function(){
         var ranges = document.querySelectorAll("input[type=range]")
@@ -206,38 +251,18 @@ function submitChanges(min ,max){
     }
 }
 
-function toggle(arg) {
-    console.log(arg)
-    target = $("#mainDisplay").find("#"+arg)
-    if ($(target).hasClass('toggleOn')){
-       toggleOff('#' + arg)
+function addOptionsMenu(){
+
+    opt = document.getElementById("optionsButton")  
+    opt.parentNode.insertAdjacentElement("afterend", createOptions())
+    opt.onclick = toggleOptions
+}
+
+function toggleOptions(){
+    target = document.getElementById("optionsMenu")
+    if (target.style.display === "none"){
+        target.style.display = "block"
     } else {
-        $("#mainDisplay").find(".toggleOn").removeClass("toggleOn").addClass("toggleOff")
-        toggleOn('#'+arg)
-        target.prepend($("#closeButton"))
-    }
-}
-
-function toggleOn(id){
-    $(id).removeClass("toggleOff").addClass("toggleOn")
-}
-
-function toggleOff(id){
-    $(id).removeClass("toggleOn").addClass("toggleOff")
-}
-
-function fillTable(res){
-    var data = res.responseText
-    var items = data.split(";")
-    var table = $("#progressTable")
-    for (let i = 0; i < items.length-1; i++){
-        console.log(JSON.parse(items[i]))
-        obj = JSON.parse(items[i])
-        table.append("<tr><td>" + obj.name
-         + "</td><td>" + obj.set 
-         + "</td><td>" + obj.reps 
-         + "</td><td>" + obj.weight
-         + "</td><td>" + obj.date)
-
+        target.style.display ="none"
     }
 }

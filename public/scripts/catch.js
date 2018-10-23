@@ -40,24 +40,34 @@ router.get("/exercise", function(req,res) {
     let db = new sqlite.Database('db/Reps.db', function(err) {
 
         if (err) {
+            res.send("err")
             return console.error(err.message);
         }
         console.log('Connected to DB');
     });
 
     db.serialize( function() {
-        
         db.each("SELECT * FROM exercises", function(err, row) {
             if (err) {
+                res.send("404")
                 return console.log(err.message);
             }
-            console.log(`${row.name} ${row.setnum} ${row.reps} ${row.weight} ${row.date}`) 
-            res.write(`<tr><td>${row.name}</td><td> ${row.setnum}</td><td> ${row.reps}</td><td> ${row.weight} </td><td>${row.date}</td></tr>`)
+            var obj = {
+                "name": row.name, 
+                "set": row.setnum, 
+                "reps": row.reps, 
+                "weight": row.weight, 
+                "date": row.date}
+
+            res.write(JSON.stringify(obj)+ ";")
+
         });
     });
 
     db.close( function (err) {
         if (err) {
+            res.send("err")
+
             return console.error(err.message);
         }
         console.log('Closed connection to DB');
@@ -76,6 +86,7 @@ router.delete("/table", function(req, res) {
     db.run("DROP TABLE exercises", function(err) {
         if (err) {
             return console.log(err.message)
+
         }
     });
     db.close( function (err) {
