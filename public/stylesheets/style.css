@@ -44,8 +44,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
     width: 100%
+}
+
+#closeButton{
+    align-self: flex-end
 }
 
 .toggleOn{
