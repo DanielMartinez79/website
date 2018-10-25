@@ -1,33 +1,26 @@
 * {
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+}
+
+#settings input[type="number"] {
+    width:12%
+}
+
+#settings input[type="button"] {
+    widows: 20%;
+    padding: 0
 }
 
 #bar .tooltip {
     position: relative;
 }
 
-#bar .tip {
-    font-size: 18px;
-    visibility: hidden;
-    position: absolute;
-    width: 100px;
-    z-index: 1;
-    top: 125%;
-    left: -25px;
-    background-color:dodgerblue;
-    text-align: center;
-    border-radius: 5px;
-}
-
-#bar .tooltip:hover .tip {
-    visibility: visible
-}
-
 #mainDisplay{
     display: flex;
     position: absolute;
-    margin: 0 10%;
-    width: 80%;
+    margin: 0 2%;
+    width: 96%;
     color:dodgerblue;
     z-index: 1;
     background-color: aliceblue;
@@ -48,7 +41,8 @@
 }
 
 #closeButton{
-    align-self: flex-end
+    align-self: flex-end;
+    font-size: 65px
 }
 
 .toggleOn{
@@ -65,21 +59,23 @@
     margin-bottom: 18px;
     display: flex;
     flex-direction: row;
-    justify-content: center
+    justify-content: center;
 }
 
 #bar i {
-    font-size: 20px;
-    display: inherit;
+    font-size: 100px;
+    display: flex;
     flex-direction: column;
 }
 
 #bar li {
+    
     padding:2px 10px;
     border-style: solid;
     border-width: 2px;
     border-top: 0;
     border-right: 0;
+    width:25%
 }
 
 #bar li:last-child{
@@ -101,7 +97,7 @@ li {
 
 .set{
     margin: 4px;
-    width: 50px;
+    width: 15%;
 } 
 
 input[type="button"] {
@@ -109,9 +105,9 @@ input[type="button"] {
     border-style: none;
     color: white;
     border-radius: 6px;
-    width: 40%;
+    width: 33%;
     padding: 3% 0;
-    font-size: 50px;
+    font-size: 65px;
     margin: 4px;
     border-style: solid;
     border-color: white
@@ -125,11 +121,6 @@ input[type="text"] {
     width: 30%;
     -moz-appearance: textfield;
 
-}
-
-input[type="number"] {
-    width: 15%;
-    font-size: 70px
 }
 
 .weightRange {
@@ -174,7 +165,11 @@ input[type="number"] {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 70px
+    font-size: 70px;
+}
+
+.exerciseContainer * {
+    margin: 2%
 }
 
 #UI {
@@ -189,18 +184,14 @@ input[type="number"] {
 #UI input[type="number"] {
     width:15%
 }
+
 #exerciseList {
     box-sizing: border-box;
 }
 
-#progressTable{
-    font-size: 30px;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    
+#progressTable  *{
+    font-size: 36px;
 }
-
 
 #exerciseForm {
     font-size: 50px;
@@ -208,23 +199,55 @@ input[type="number"] {
 
 @media screen and (min-width: 1000px){
 
-    #mainDisplay p {
-        padding: 2%;
-        margin: 0;
+    body * {
+        font-size: 18px;
+    }
+
+    p {
+        padding: 0 2%
+    }
+
+    #bar{
+        width: 30%;
+        margin: 0 35%;
+        margin-bottom: 2%
+    }
+
+    #mainDisplay *{
+        font-size: 16px;
+    }
+
+    #mainDisplay{
+        width: 70%;
+        margin: 0 15%
+    }
+
+    #progressTable {
+        width: 90%;
+        margin: 0 10%
+    }
+
+    #bar .tip {
+        font-size: 18px;
+        visibility: hidden;
+        position: absolute;
+        width: 100px;
+        z-index: 1;
+        top: 125%;
+        left: -25px;
+        background-color:dodgerblue;
+        text-align: center;
+        border-radius: 5px;
+    }
+    
+    #bar .tooltip:hover .tip {
+        visibility: visible
     }
 
     input[type="button"] {
         width: 25%;
         margin: 4px;
         padding: 0;
-        font-size: 20px;
-    }
-
-    #exerciseForm {
-        font-size: 20px;
-    }
-
-    #progressTable{
         font-size: 20px;
     }
 
@@ -268,10 +291,11 @@ input[type="number"] {
         background-color: dodgerblue
     }
 
-
-
     #bar i {
         font-size: 30px;
-        padding:0  8px;
+    }
+
+    #exerciseForm{
+        font-size: 20px;
     }
 }
