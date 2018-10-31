@@ -218,12 +218,12 @@ function toggle(arg) {
     }
 }
 
-function toggleOn(id){
-    $(id).removeClass("toggleOff").addClass("toggleOn")
+function toggleOn(tar){
+    $(tar).removeClass("toggleOff").addClass("toggleOn")
 }
 
-function toggleOff(id){
-    $(id).removeClass("toggleOn").addClass("toggleOff")
+function toggleOff(tar){
+    $(tar).removeClass("toggleOn").addClass("toggleOff")
 }
 
 function fillTable(res){
@@ -240,4 +240,17 @@ function fillTable(res){
          + "</td><td>" + obj.date)
 
     }
+}
+
+function init() {
+    $(document).ready(function(){
+        $(".bubble").click(function(){
+            target = $(this).find(".bubbleContents")
+            if (target.hasClass("toggleOff")){
+                toggleOn(target)
+            } else {
+                toggleOff(target)
+            }
+        })
+    })
 }
