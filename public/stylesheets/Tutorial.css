@@ -5,7 +5,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    background: hsla(240, 20%, 4%, 0.837)
+    background: linear-gradient(to bottom right, hsla(219, 45%, 49%, 1.0),hsla(192, 55%, 40%, 0.9) );
 }
 
 p {
@@ -29,10 +29,11 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .bubble {
-    border-radius: 4px; 
-    color: hsla(35, 70%, 80%, 1);
-    font-family: 'Courier New', Courier, monospace;
-    background: linear-gradient(to bottom right, hsla(219, 45%, 49%, 1.0),hsla(192, 55%, 50%, 0.6) );
+    word-wrap: break-word;
+    border-radius: 4px;
+    background-color: hsla(0, 45%, 100%, 0.2);
+    color: hsla(280, 70%, 95%, 1);
+    font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 1%;
     padding: 10px;
     overflow: hidden;
@@ -46,9 +47,8 @@ h1,h2,h3,h4,h5,h6{
 }
 
 a {
-    background-color: white;
     font-weight: bold;
-    color:hsla(260, 80%, 50%, 1);
+    color:hsla(260, 70%, 50%, 1);
 }
 
 @media screen and (min-width:800px) {
@@ -74,7 +74,8 @@ a {
         width:48%
     }
 
-    
+ 
+
     .column3 {
         width: 31%;
         flex:inherit;
