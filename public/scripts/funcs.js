@@ -244,7 +244,7 @@ function fillTable(res){
 
 function init() {
     $(document).ready(function(){
-        $(".bubble").click(function(){
+        $(".clickMobile").click(function(){
             target = $(this).find(".bubbleContents")
             if (target.hasClass("toggleOff")){
                 toggleOn(target)

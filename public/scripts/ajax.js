@@ -31,3 +31,4 @@ function updateAJAX(obj){
     console.log("PUT")
     xhttp.send(obj)
 }
+

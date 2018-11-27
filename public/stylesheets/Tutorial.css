@@ -1,7 +1,12 @@
 * {
     box-sizing: border-box;
 }
+
+html {
+    height: 100%;
+}
 body {
+    height: 99%;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -35,11 +40,13 @@ h1,h2,h3,h4,h5,h6{
     color: hsla(280, 70%, 95%, 1);
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 1%;
-    padding: 10px;
     overflow: hidden;
     animation-name: grow;
-    animation-duration: 2s;
+    animation-duration: 3s;
 }
+ .clickMobile{
+     height: 16%;
+ }
 
 @keyframes grow {
     from {transform: scale(0,0)}
@@ -51,6 +58,10 @@ a {
     color:hsla(260, 70%, 50%, 1);
 }
 
+.flexCont{
+    display: flex;
+    flex-wrap: wrap;
+}
 @media screen and (min-width:800px) {
 
     body{
@@ -71,18 +82,24 @@ a {
 
     .column2 {
         flex: inherit;
-        width:48%
+        width:40%
     }
 
- 
-
     .column3 {
-        width: 31%;
+        width: 30%;
         flex:inherit;
     }
 
     ul {
         padding: 3%;
+    
+    }
+    .bottomBorder {
+        border-bottom-style: solid
     }
 
+
+    .block {
+        border-style: solid
+    }
 }

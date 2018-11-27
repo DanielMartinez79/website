@@ -6,119 +6,131 @@
     <script src="scripts/funcs.js"></script>
     <link rel="stylesheet" href="stylesheets/Tutorial.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
 </head>
-<body id="#mainDisplay">
-    <div class="column3 bubble">
-        <h2>About Me</h2>
-        <div class="bubbleContents toggleOff">
-            <p> My name is Daniel Martinez Avila. I recently graduated from California State University, Long Beach with a Bachelors
-                of Science in Computer Science. I transferred to Long Beach from Antelope Valley College, where I received an Associates
-                Degree in Computer Software Development in 2015.</p>
-                <span><br>Email: Dan.martinezavila@gmail.com</span>
-                <span><br><a target="_blank" href="https://github.com/DanielMartinez79">Github</a></span>
-                <span><br><a target="_blank" href="Daniel_Martinez_Resume_.pdf">Resume</a></span>
-        </div>
-    </div>
-    <div class="column3 bubble">
-        <h2> Education </h2>
-        <div class="bubbleContents toggleOff">
-            <h3>Bachelors of Science: Computer Science</h3>
-            <ul>
-                <li>California State University, Long Beach</li>
-                <li>August 2015 to May 2018</li>
-            </ul>
-            <h3>Associates of Science: Computer Software Development</h3>
-            <ul>
-                <li>Antelope Valley College</li>
-                <li>August 2011 to June 2015 </li>
-            </ul>
-        </div>
-    </div>
-    <div class="column3 bubble">
-        <h2>Skills</h2>
-        <div class="bubbleContents toggleOff">
-            <div class="flexrow">
-                <ul class="column2">
-                    <h4>Languages </h4>
-                    <li>Javascript + jQuery</li>
-                    <li>Python</li>
-                    <li>C/C++</li>
-                    <li>HTML and CSS</li>
-                    <li>Java</li>
-                </ul>
-                <ul class="column2">
-                    <h4>Environments and Frameworks</h4>
-                    <li>Linux</li>
-                    <li>Nodejs + Express</li>
-                    <li>Ionic</li>
-                    <li>AWS</li>
-                    <h4>Methodologies</h4>
-                    <li>Agile</li>
-                    <li>Waterfall</li>
-                    <li>SCRUM</li>
-                </ul>
+<body id="mainDisplay">
+    <div class="bubble container">
+        <div class="row bottomBorder">
+            <div class=" col-sm-12 col-lg-4 clickMobile ">
+                <h2>About Me</h2>
+                <div class="bubbleContents toggleOff">
+                    <p> My name is Daniel Martinez Avila. I recently graduated from California State University, Long Beach with
+                        a Bachelors of Science in Computer Science. I transferred to Long Beach from Antelope Valley College,
+                        where I received an Associates Degree in Computer Software Development in 2015.</p> <span><br>Email:
+                        Dan.martinezavila@gmail.com</span> <span><br><a target="_blank" href="https://github.com/DanielMartinez79">Github</a></span>
+                    <span><br><a target="_blank" href="Daniel_Martinez_Resume_.pdf">Resume</a></span> </div>
+            </div>
+            <div class="col-sm-12 col-lg-4 clickMobile ">
+                <h2> Education </h2>
+                <div class="bubbleContents toggleOff">
+                    <h3>Bachelors of Science: Computer Science</h3>
+                    <ul>
+                        <li>California State University, Long Beach</li>
+                        <li>August 2015 to May 2018</li>
+                    </ul>
+                    <h3>Associates of Science: Computer Software Development</h3>
+                    <ul>
+                        <li>Antelope Valley College</li>
+                        <li>August 2011 to June 2015 </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-4 clickMobile">
+                <h2>Experience</h2>
+                <div class="bubbleContents toggleOff">
+                    <h3> Web Developer Internship</h3>
+                    <ul>
+                        <li>Intern at Tatum Games, a mobile video games company</li>
+                        <li>Part of a team currently updating the design of the company website</li>
+                        <li>Utilizing Bootstrap and Agile methodology</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="column2 bubble">
-        <h2> Personal Projects</h2>
-        <div class="bubbleContents toggleOff">
-            <h3>Website</h3>
-            <ul>
-                <li>Front end: HTML, CSS and JavaScript</li>
-                <li>Back end: Nodejs + Express</li>
-                <li>Responsive web design</li>
-                <li><a href="https://github.com/DanielMartinez79/website" target="_blank">Here's the code</a></li>
-            </ul>
-            <h3> RepCount </h3>
-            <ul>
-                <li> A web app that lets users record the volume of their workouts </li>
-                <li>Progress is stored in a database using SQLite</li>
-                <li>Used to learn JavaScript DOM manipulation and Express routing</li>
-                <li> <a href="./repcounter.html" target="_blank">Check it out</a> </li>
-            </ul>
-            <h3>FileMover </h3>
-            <ul>
-                <li> A C++ program that moves files from one location to another </li>
-                <li> Uses regular expression to search through file names and move them to designated folder </li>
-                <li> <a href="https://github.com/DanielMartinez79/FileMover-Cpp-" target="_blank">Here is a link to the source
-                        code</a> </li>
-            </ul>
-        </div>
-    </div>
-    <div class="column2 bubble">
-        <h2> Coursework</h2>
-        <div class="bubbleContents toggleOff">
-            <h3>Senior Group Project: SpeakUp</h3>
-            <p> A year-long assignment which consisted of proposing an idea for a software program and then planning, designing,
-                documenting and producing it.</p>
-            <ul>
-                <li> Cross-platform mobile and web app that could be used by students and teachers to chat during lectures </li>
-                <li> Gathered requirements, identified use cases, designed architecture and produced requirements analysis document
-                    </li>
-                <li> Utilized HTML5, CSS3 and TypeScript with Ionic framework </li>
-                <li> Agile methodology with daily Scrum meetings </li>
-                <li> <a href="https://speakup.host/" target="_blank"> Final product can be found here</a> </li>
-            </ul>
-            <h3>Distributed Systems Term Project</h3>
-            <p>The goal of this assignment was to create a program that could synchronize files between 2 or more computers
-                on the same network using peer-to-peer architecture.</p>
-            <ul>
-                <li>Coded in Python</li>
-                <li>Synchronize files from a designated folder </li>
-                <li>Synch based on which file was most recently modified</li>
-                <li>Multi-threaded: one thread acts as client and another thread acts as server</li>
-            </ul>
-            <h3> Software Engineering Term Project </h3>
-            <p>The purpose of this project was to familiarize ourselves with the software engineering process. We were tasked
-                with pitching an idea, gathering requirements, designing the architecture and ultimately producing a requirement
-                analysis document. </p>
-            <ul>
-                <li>Designed a review app similar to Yelp</li>
-                <li>Used the Waterfall methodology</li>
-                <li>Produced documents such as request for proposal, use cases, sequence diagrams and requirements analysis document
-                    </li>
-            </ul>
+        <div class="row">
+            <div class="col-sm-12 col-lg-4 clickMobile">
+                <h2> Personal Projects</h2>
+                <div class="bubbleContents toggleOff">
+                    <h3>Website</h3>
+                    <ul>
+                        <li>Front end: HTML, CSS and JavaScript</li>
+                        <li>Back end: Nodejs + Express</li>
+                        <li>Responsive web design</li>
+                        <li><a href="https://github.com/DanielMartinez79/website" target="_blank">Here's the code</a></li>
+                    </ul>
+                    <h3> RepCount </h3>
+                    <ul>
+                        <li> A web app that lets users record the volume of their workouts </li>
+                        <li>Progress is stored in a database using SQLite</li>
+                        <li>Used to learn JavaScript DOM manipulation and Express routing</li>
+                        <li> <a href="./repcounter.html" target="_blank">Check it out</a> </li>
+                    </ul>
+                    <h3>FileMover </h3>
+                    <ul>
+                        <li> A C++ program that moves files from one location to another </li>
+                        <li> Uses regular expression to search through file names and move them to designated folder </li>
+                        <li>
+                        <a href="https://github.com/DanielMartinez79/FileMover-Cpp-" target="_blank">Here is a link to the
+                                source code</a> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-4 clickMobile">
+                <h2>Skills</h2>
+                <div class="bubbleContents toggleOff">
+                    <div class="flexrow">
+                        <ul class="column2">
+                            <h4>Languages </h4>
+                            <li>Javascript + jQuery</li>
+                            <li>Python</li>
+                            <li>C/C++</li>
+                            <li>HTML and CSS</li>
+                            <li>Java</li>
+                        </ul>
+                        <ul class="column2">
+                            <h4>Environments and Frameworks</h4>
+                            <li>Linux</li>
+                            <li>Nodejs + Express</li>
+                            <li>Ionic</li>
+                            <li>AWS</li>
+                            <h4>Methodologies</h4>
+                            <li>Agile</li>
+                            <li>Waterfall</li>
+                            <li>SCRUM</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-4 clickMobile">
+                <h2> Coursework</h2>
+                <div class="bubbleContents toggleOff">
+                    <h3>Senior Group Project: SpeakUp</h3>
+                    <p> A year-long assignment which consisted of proposing an idea for a software program and then planning,
+                        designing, documenting and producing it.</p>
+                    <ul>
+                        <li> Cross-platform mobile and web app that could be used by students and teachers to chat during lectures
+                            </li>
+                        <li> Gathered requirements, identified use cases, designed architecture and produced requirements analysis
+                            document </li>
+                        <li> Utilized HTML5, CSS3 and TypeScript with Ionic framework </li>
+                        <li> Agile methodology with daily Scrum meetings </li>
+                        <li> <a href="https://speakup.host/" target="_blank"> Final product can be found here</a> </li>
+                    </ul>
+                    <h3>Distributed Systems Term Project</h3>
+                    <p>The goal of this assignment was to create a program that could synchronize files between 2 or more computers
+                        on the same network using peer-to-peer architecture.</p>
+                    <ul>
+                        <li>Coded in Python</li>
+                        <li>Synchronize files from a designated folder </li>
+                        <li>Synch based on which file was most recently modified</li>
+                        <li>Multi-threaded: one thread acts as client and another thread acts as server</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     <script>
