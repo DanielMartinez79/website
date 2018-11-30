@@ -2,9 +2,7 @@
     box-sizing: border-box;
 }
 
-html {
-    height: 100%;
-}
+
 body {
     height: 99%;
     margin: 0;
@@ -19,6 +17,7 @@ p {
     line-height: 20px;
     margin:10px;
 }
+
 
 h1,h2,h3,h4,h5,h6{
     text-align: center;
@@ -37,25 +36,17 @@ h1,h2,h3,h4,h5,h6{
     word-wrap: break-word;
     border-radius: 4px;
     background-color: hsla(0, 45%, 100%, 0.2);
-    color: hsla(280, 70%, 95%, 1);
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 1%;
+    color: white;
     overflow: hidden;
     animation-name: grow;
     animation-duration: 3s;
 }
- .clickMobile{
-     height: 16%;
- }
 
 @keyframes grow {
     from {transform: scale(0,0)}
     to {transform: scale(1,1)}
-}
-
-a {
-    font-weight: bold;
-    color:hsla(260, 70%, 50%, 1);
 }
 
 .flexCont{
