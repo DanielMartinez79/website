@@ -134,6 +134,10 @@ router.put("/exercise", function(req, res) {
     res.end()
 });
 
+router.post("/recaptcha"), function(req,res) {
+    console.log("Success")
+}
+
 function close(err){
     if (err) {
         return console.error(err.message);

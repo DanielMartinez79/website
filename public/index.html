@@ -16,8 +16,20 @@
         crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcJcIAUAAAAACS6dDs-90NzvQwL6UIPKOkS4qE-"></script>
 </head>
 <body id="mainDisplay">
+        <script>
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('6LcJcIAUAAAAACS6dDs-90NzvQwL6UIPKOkS4qE-', {action: 'test'})
+                    .then(function(token) {
+                    // Verify the token on the server.
+                        fetch("/recaptcha", {
+                            method: "POST"
+                        }); 
+                    });
+                });
+                </script>
     <div class="bubble container">
         <div class="row ">
             <div class="border border-white col-xs-12 col-sm-12 col-md-6 col-lg-4 clickMobile">
