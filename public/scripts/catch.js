@@ -135,7 +135,16 @@ router.put("/exercise", function(req, res) {
 });
 
 router.post("/recaptcha"), function(req,res) {
-    console.log("Success")
+    
+    fetch("https://www.google.com/recaptcha/api/siteverify", {
+        secret: "6LcJcIAUAAAAAEw1yqrXhO9p-fcq6nMkTMylAzmV",
+        response: req.body
+    }).then( function(response) {
+        return response.json();
+    }).then( function(myJson) {
+        console.log(JSON.stringify(myJson));
+    });
+    res.end();
 }
 
 function close(err){
