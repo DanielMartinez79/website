@@ -142,7 +142,7 @@ router.post("/recaptcha"), function(req,res) {
     }).then( function(response) {
         return response.json();
     }).then( function(myJson) {
-        console.log(JSON.stringify(myJson));
+        res.send(console.log(JSON.stringify(myJson)));
     });
     res.end();
 }
