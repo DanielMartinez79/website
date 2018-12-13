@@ -149,11 +149,12 @@ router.post("/recap"), function(req,res) {
     console.log("success")
     fetch("https://www.google.com/recaptcha/api/siteverify", {
         secret: "6LcJcIAUAAAAAEw1yqrXhO9p-fcq6nMkTMylAzmV",
-        response: req.body
+        response: req.body.g-recaptcha-response
     }).then( function(response) {
         return response.json();
-    }).then( function(myJson) {
-        res.send(console.log(JSON.stringify(myJson)));
+    }).then( function(response) {
+        res.send("Success");
+        res.send(response);
     });
     res.end();
 }
