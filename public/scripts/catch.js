@@ -147,6 +147,7 @@ router.get("/test", function (req, res){
 */
 router.post("/recap"), function(req,res) {
     console.log("success")
+    console.log(req.body)
     fetch("https://www.google.com/recaptcha/api/siteverify", {
         secret: "6LcJcIAUAAAAAEw1yqrXhO9p-fcq6nMkTMylAzmV",
         response: req.body.g-recaptcha-response
