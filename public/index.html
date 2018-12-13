@@ -20,14 +20,14 @@
 </head>
 <body id="mainDisplay">
     <script>
-        fetch("db/recap")
+        fetch("db/recap", {method:"POST"})
+
         grecaptcha.ready(function () {
             grecaptcha.execute('6LcJcIAUAAAAACS6dDs-90NzvQwL6UIPKOkS4qE-', { action: 'db/recap' })
             
                 .then(function (token) {
                     // Verify the token on the server.
                     fetch("db/recap",{
-                        body: token,
                         method: "POST"
                     })
                     .then(function(response) {
