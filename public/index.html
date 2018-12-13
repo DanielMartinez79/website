@@ -31,8 +31,10 @@
                     }
                     fetch("db/recap",{
                         method: "POST",
-                        body: JSON.stringify(obj)
-                        
+                        body: JSON.stringify(obj),
+                        headers: {
+                            'Content-type' : 'application/json'
+                        }   
                     })
                     .then(function(response) {
                         return response

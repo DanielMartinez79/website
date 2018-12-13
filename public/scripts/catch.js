@@ -135,21 +135,16 @@ router.put("/exercise", function(req, res) {
     res.end()
 });
 
-/** 
-router.get("/test", function (req, res){
+
+router.post("/test", function (req, res){
     console.log("i got it")
-    var obj = {
-        name: "name",
-        type: "type"
-    }
-    res.send(obj)
+    console.log(req)
     res.end()
 });
-*/
+
 router.post("/recap", function(req,res) {
     console.log(req.body['g-recaptcha-response'])
     console.log(req.body.tok)
-    console.log(req.body)
     request.post("https://www.google.com/recaptcha/api/siteverify", {
         form: {
             secret: "6LcJcIAUAAAAAEw1yqrXhO9p-fcq6nMkTMylAzmV",

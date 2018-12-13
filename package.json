@@ -5,9 +5,10 @@
   "main": "jquery-3.3.1.js",
   "dependencies": {
     "Express": "^3.0.1",
+    "body-parser": "^1.18.3",
     "developer": "^1.0.0",
     "edition": "0.0.1",
-    "express": "^4.16.3",
+    "express": "^4.16.4",
     "firefox": "0.0.1",
     "request": "^2.88.0",
     "set-default-browser": "^1.0.1",
