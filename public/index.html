@@ -19,18 +19,16 @@
     <script src="https://www.google.com/recaptcha/api.js?render=6LcJcIAUAAAAACS6dDs-90NzvQwL6UIPKOkS4qE-"></script>
 </head>
 <body id="mainDisplay">
-        <script>
-                grecaptcha.ready(function() {
-                    grecaptcha.execute('6LcJcIAUAAAAACS6dDs-90NzvQwL6UIPKOkS4qE-', {action: 'db/recaptcha'})
-                    .then(function(token) {
+    <script>
+        grecaptcha.ready(function () {
+            grecaptcha.execute('6LcJcIAUAAAAACS6dDs-90NzvQwL6UIPKOkS4qE-', { action: 'db/recaptcha' })
+                .then(function (token) {
                     // Verify the token on the server.
-                        fetch("db/recaptcha", {
-                            method: "POST"
-                        }); 
-                        console.log("t")
-                    });
+
+                    
                 });
-                </script>
+        });
+    </script>
     <div class="bubble container">
         <div class="row ">
             <div class="border border-white col-xs-12 col-sm-12 col-md-6 col-lg-4 clickMobile">
@@ -38,7 +36,8 @@
                 <div class="bubbleContents toggleOff">
                     <p> Daniel Martinez Avila. Recent Grad. Aspiring Software Engineer. This is my portfolio.</p> <span><br>Email:
                         Dan.martinezavila@gmail.com</span> <span><br><a target="_blank" class="bg-primary text-white" href="https://github.com/DanielMartinez79">Github</a></span>
-                    <span><br><a target="_blank" class="bg-primary text-white" href="Daniel_Martinez_Resume_.pdf">Resume</a></span> </div>
+                    <span><br><a target="_blank" class="bg-primary text-white" href="Daniel_Martinez_Resume_.pdf">Resume</a></span>
+                    </div>
             </div>
             <div class="border border-white col-xs-12 col-sm-12 col-md-6 col-lg-4 clickMobile">
                 <h2> Education </h2>
@@ -70,30 +69,28 @@
             <div class="border border-white col-xs-12 col-sm-12 col-md-6 col-lg-4 clickMobile">
                 <h2>Skills</h2>
                 <div class="bubbleContents toggleOff">
-                   
-                        <ul >
-                            <h5>Languages </h5>
-                            <li>Javascript + jQuery</li>
-                            <li>HTML and CSS</li>
-                            <li>Python</li>
-                            <li>C/C++</li>
-                            <li>Java</li>
-                        </ul>
-                        <ul >
-                            <h5>Environments and Frameworks</h5>
-                            
-                            <li>Nodejs + Express</li>
-                            <li>Bootstrap</li>
-                            <li>Ionic</li>
-                            <li>Linux</li>
-                            <li>AWS</li>
-                            </ul>
-                            <ul>
-                            <h5>Methodologies</h5>
-                            <li>Agile</li>
-                            <li>Waterfall</li>
-                            <li>SCRUM</li>
-                        </ul>
+                    <ul>
+                        <h5>Languages </h5>
+                        <li>Javascript + jQuery</li>
+                        <li>HTML and CSS</li>
+                        <li>Python</li>
+                        <li>C/C++</li>
+                        <li>Java</li>
+                    </ul>
+                    <ul>
+                        <h5>Environments and Frameworks</h5>
+                        <li>Nodejs + Express</li>
+                        <li>Bootstrap</li>
+                        <li>Ionic</li>
+                        <li>Linux</li>
+                        <li>AWS</li>
+                    </ul>
+                    <ul>
+                        <h5>Methodologies</h5>
+                        <li>Agile</li>
+                        <li>Waterfall</li>
+                        <li>SCRUM</li>
+                    </ul>
                 </div>
             </div>
             <div class="border border-white col-xs-12 col-sm-12 col-md-6 col-lg-4 clickMobile">
@@ -105,28 +102,26 @@
                         <li>Back end: Nodejs + Express, AWS EC2</li>
                         <li>Responsive web/mobile design</li>
                     </ul>
-                    <h4>  <a class="bg-primary text-white" href="./repcounter.html" target="_blank">RepCount</a></h4>
+                    <h4> <a class="bg-primary text-white" href="./repcounter.html" target="_blank">RepCount</a></h4>
                     <ul>
                         <li>A web app that records workout volume </li>
                         <li>Implemented using JavaScript DOM manipulation, AJAX and SQLite</li>
                     </ul>
-                    <h4> <a class="bg-primary text-white" href="https://github.com/DanielMartinez79/FileMover-Cpp-" target="_blank">FileMover</a> </h4>
+                    <h4> <a class="bg-primary text-white" href="https://github.com/DanielMartinez79/FileMover-Cpp-" target="_blank">FileMover</a>
+                        </h4>
                     <ul>
                         <li> A C++ program that moves files to designated folder </li>
                         <li> Uses regular expression to search through file names </li>
-                        
                     </ul>
                 </div>
             </div>
-           
             <div class="border border-white col-xs-12 col-sm-12 col-md-6 col-lg-4 clickMobile">
                 <h2> Coursework</h2>
                 <div class="bubbleContents toggleOff">
                     <h4>Senior Group Project</h4>
-
                     <ul>
-                        <li> Created <a class="bg-primary text-white" href="https://speakup.host/" target="_blank">SpeakUp</a>, a mobile/web chatroom app for students and teachers
-                            </li>
+                        <li> Created <a class="bg-primary text-white" href="https://speakup.host/" target="_blank">SpeakUp</a>,
+                            a mobile/web chatroom app for students and teachers </li>
                         <li> Utilized HTML5, CSS3 and TypeScript with Ionic framework </li>
                         <li> Agile methodology with daily Scrum meetings </li>
                     </ul>
@@ -139,9 +134,9 @@
                 </div>
             </div>
         </div>
-        </div>
-        <script>
-            init()
-        </script>
+    </div>
+    <script>
+        init()
+    </script>
 </body>
 </html>

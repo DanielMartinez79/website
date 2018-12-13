@@ -134,6 +134,17 @@ router.put("/exercise", function(req, res) {
     res.end()
 });
 
+/** 
+router.get("/test", function (req, res){
+    console.log("i got it")
+    var obj = {
+        name: "name",
+        type: "type"
+    }
+    res.send(obj)
+    res.end()
+});
+*/
 router.post("/recaptcha"), function(req,res) {
     console.log("success")
     fetch("https://www.google.com/recaptcha/api/siteverify", {
