@@ -145,7 +145,7 @@ router.get("/test", function (req, res){
     res.end()
 });
 */
-router.get("/recap"), function(req,res) {
+router.post("/recap"), function(req,res) {
     console.log("success")
     console.log(req.body)
     let data = {

@@ -24,7 +24,10 @@
             grecaptcha.execute('6LcJcIAUAAAAACS6dDs-90NzvQwL6UIPKOkS4qE-', { action: 'db/recap' })
                 .then(function (token) {
                     // Verify the token on the server.
-                    fetch("db/recap")
+                    fetch("db/recap",{
+                        body: token,
+                        method: "POST"
+                    })
                     .then(function(response) {
                         return response
                     })
