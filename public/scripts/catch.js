@@ -145,12 +145,17 @@ router.get("/test", function (req, res){
     res.end()
 });
 */
-router.post("/recap"), function(req,res) {
+router.get("/recap"), function(req,res) {
     console.log("success")
     console.log(req.body)
-    fetch("https://www.google.com/recaptcha/api/siteverify", {
+    let data = {
         secret: "6LcJcIAUAAAAAEw1yqrXhO9p-fcq6nMkTMylAzmV",
         response: req.body.g-recaptcha-response
+    }
+    fetch("https://www.google.com/recaptcha/api/siteverify", {
+        method: "POST",
+        body: data
+
     }).then( function(response) {
         return response.json();
     }).then( function(response) {
