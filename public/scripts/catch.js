@@ -155,7 +155,7 @@ router.post("/recap", function(req,res) {
             response: req.body['g-recaptcha-response']
         }
     }, function(error, response, body) {
-        console.log(response)
+        console.log(body)
     })
 
     res.end();
