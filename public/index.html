@@ -22,6 +22,7 @@
     <script>
         grecaptcha.ready(function () {
             grecaptcha.execute('6LcJcIAUAAAAACS6dDs-90NzvQwL6UIPKOkS4qE-', { action: 'db/recap' })
+            .then(fetch("db/recap"))
                 .then(function (token) {
                     // Verify the token on the server.
                     fetch("db/recap",{
