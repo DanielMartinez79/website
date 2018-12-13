@@ -26,9 +26,12 @@
                 .then(function (token) {
                     console.log(token)
                     // Verify the token on the server.
+                    let obj = {
+                        tok: token
+                    }
                     fetch("db/recap",{
                         method: "POST",
-                        body: token
+                        body: JSON.stringify(obj)
                         
                     })
                     .then(function(response) {
