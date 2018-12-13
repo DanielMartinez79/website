@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bodyParser = require('body-parser');
+var request=require('request');
 const sqlite = require('sqlite3').verbose();
 
 
@@ -147,20 +148,22 @@ router.get("/test", function (req, res){
 */
 router.post("/recap", function(req,res) {
     console.log("success")
-    console.log(req.body)
+    console.log(req)
     let data = {
         secret: "6LcJcIAUAAAAAEw1yqrXhO9p-fcq6nMkTMylAzmV",
         response: req.body['g-recaptcha-response']
     }
-    fetch("https://www.google.com/recaptcha/api/siteverify", {
-        method: "POST",
-        body: data
+    request.post("https://www.google.com/recaptcha/api/siteverify", function(error, response, body) {
+        console.log(body)
+    })
+    /** 
     }).then( function(response) {
         return response.json();
     }).then( function(response) {
         res.send("Success");
         res.send(response);
     });
+    */
     res.end();
 });
 
