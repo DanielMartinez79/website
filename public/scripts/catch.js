@@ -143,12 +143,10 @@ router.post("/test", function (req, res){
 });
 
 router.post("/recap", function(req,res) {
-    console.log(req.body['g-recaptcha-response'])
-    console.log(req.body.tok)
     request.post("https://www.google.com/recaptcha/api/siteverify", {
         form: {
             secret: "6LcJcIAUAAAAAEw1yqrXhO9p-fcq6nMkTMylAzmV",
-            response: req.body['g-recaptcha-response']
+            response: req.body.tok
         }
     }, function(error, response, body) {
         console.log(body)
