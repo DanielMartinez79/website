@@ -135,7 +135,7 @@ router.put("/exercise", function(req, res) {
 });
 
 router.post("/recaptcha"), function(req,res) {
-    
+    console.log("success")
     fetch("https://www.google.com/recaptcha/api/siteverify", {
         secret: "6LcJcIAUAAAAAEw1yqrXhO9p-fcq6nMkTMylAzmV",
         response: req.body

@@ -24,7 +24,7 @@
                     grecaptcha.execute('6LcJcIAUAAAAACS6dDs-90NzvQwL6UIPKOkS4qE-', {action: 'test'})
                     .then(function(token) {
                     // Verify the token on the server.
-                        fetch("/recaptcha", {
+                        fetch("db/recaptcha", {
                             method: "POST"
                         }); 
                     });
