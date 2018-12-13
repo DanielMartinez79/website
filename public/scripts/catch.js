@@ -145,7 +145,7 @@ router.get("/test", function (req, res){
     res.end()
 });
 */
-router.post("/recaptcha"), function(req,res) {
+router.post("/recap"), function(req,res) {
     console.log("success")
     fetch("https://www.google.com/recaptcha/api/siteverify", {
         secret: "6LcJcIAUAAAAAEw1yqrXhO9p-fcq6nMkTMylAzmV",
