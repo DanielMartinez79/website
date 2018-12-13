@@ -154,8 +154,7 @@ router.post("/recap", function(req,res) {
         response: req.body['g-recaptcha-response']
     }
     request.post("https://www.google.com/recaptcha/api/siteverify", data, function(error, response, body) {
-        console.log(data.response)
-        console.log(response)
+    console.log(response)
     })
 
     res.end();
