@@ -148,15 +148,14 @@ router.get("/test", function (req, res){
 */
 router.post("/recap", function(req,res) {
     console.log(req.body['g-recaptcha-response'])
-    console.log(req.body.token)
-    console.log(req.token)
+
     request.post("https://www.google.com/recaptcha/api/siteverify", {
         form: {
             secret: "6LcJcIAUAAAAAEw1yqrXhO9p-fcq6nMkTMylAzmV",
             response: req.body['g-recaptcha-response']
         }
     }, function(error, response, body) {
-
+        console.log(response)
     })
 
     res.end();
