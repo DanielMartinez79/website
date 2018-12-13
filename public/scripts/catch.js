@@ -153,8 +153,9 @@ router.post("/recap", function(req,res) {
         secret: "6LcJcIAUAAAAAEw1yqrXhO9p-fcq6nMkTMylAzmV",
         response: req.body['g-recaptcha-response']
     }
-    request.post("https://www.google.com/recaptcha/api/siteverify", function(error, response, body) {
-        console.log(body)
+    request.post("https://www.google.com/recaptcha/api/siteverify", data, function(error, response, body) {
+        console.log(data.response)
+        console.log(response)
     })
 
     res.end();
