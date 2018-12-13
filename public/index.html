@@ -27,7 +27,8 @@
                 .then(function (token) {
                     // Verify the token on the server.
                     fetch("db/recap",{
-                        method: "POST"
+                        method: "POST",
+                        body: token
                     })
                     .then(function(response) {
                         return response
