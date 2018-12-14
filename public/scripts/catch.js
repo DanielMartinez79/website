@@ -150,6 +150,7 @@ router.post("/recap", function(req,res) {
         }
     }, function(error, response, body) {
         console.log(body)
+        res.setHeader('Content-Type', 'application/json')
         res.write(body, function() {
             res.end();
 
