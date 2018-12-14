@@ -150,6 +150,7 @@ router.post("/recap", function(req,res) {
         }
     }, function(error, response, body) {
         console.log(body)
+        res.send(body)
     })
 
     res.end();
