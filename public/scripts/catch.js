@@ -150,10 +150,12 @@ router.post("/recap", function(req,res) {
         }
     }, function(error, response, body) {
         console.log(body)
-        res.write(body)
+        res.write(body, function() {
+            res.end();
+
+        })
     })
 
-    res.end();
 });
 
 function close(err){
