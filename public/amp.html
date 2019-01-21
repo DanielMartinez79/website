@@ -18,10 +18,10 @@
         ]
       }
     </script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
     <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
     <style amp-custom>
-
         * {
             box-sizing: border-box;
         }
@@ -75,9 +75,8 @@
             left: 0;
             right: 0;
             max-width: 1000px;
-            height: 30px;
+            height: 40px;
             background-color: white;
-            overflow: hidden;
             margin: 0 auto;
             z-index: 2
         }
@@ -99,7 +98,6 @@
         #navMenu {
             display: none;
             margin: 0;
-            
         }
 
         #navMenu li {
@@ -135,8 +133,13 @@
         }
 
         #navMenu a,
-        #navMenu a:visited {
+        a:visited {
             color: black
+        }
+
+        #navMenu a:hover,
+        .clickMe:visited {
+            color: green
         }
 
         h1,
@@ -207,7 +210,7 @@
             flex-direction: column
         }
 
-        .flexContainer > * {
+        .flexContainer>* {
             margin-bottom: 5%;
         }
 
@@ -224,8 +227,6 @@
             align-items: flex-start;
         }
 
-        
-
         .floatLeft {
             float: left;
         }
@@ -236,7 +237,8 @@
 
         #Reviews>*,
         #Prices>*,
-        .shadow:hover {
+        .shadow:hover,
+        #dropMenu li {
             box-shadow: 1px 1px 3px 1px grey
         }
 
@@ -283,6 +285,28 @@
             text-align: left
         }
 
+        #dropdown {
+            position: relative;
+        }
+
+        #dropdown:hover #dropMenu {
+            display: block;
+        }
+
+        #dropMenu {
+            display: none;
+            position: absolute;
+            background-color: white;
+            z-index: 3;
+        }
+
+        #dropMenu li {
+            display: block;
+            float: left;
+            min-width: 100px
+            
+        }
+
         @keyframes arrive {
             0% {
                 opacity: 0;
@@ -321,7 +345,6 @@
             #navMenu {
                 display: inline;
             }
-
             #navIcon {
                 display: none;
             }
@@ -513,13 +536,19 @@
                     <li><a href="#screenshots">Screenshots</a></li>
                     <li><a href="#team">Team</a></li>
                     <li><a href="#pricing">Pricing</a></li>
-                    <li><a>Dropdown</a></li>
+                    <li id="dropdown">Dropdown
+                        <div id="dropMenu">
+                                <ul >
+                                        <li> Drop1 </li>
+                                        <li> Drop2 </li>
+                                        <li> Drop3 </li>
+                                    </ul>
+                        </div>
+
+                    </li>
                     <li><a href="#blog">Blog</a></li>
                     <li><a href="#contact">Contact</a></li>
-                </ul>
-                <i id="navIcon" class="material-icons">menu</i>
-
-            </div>
+                </ul> <i id="navIcon" class="material-icons">menu</i> </div>
         </div>
     </div>
     <div id="welcome" class="fullScreen section">
@@ -535,16 +564,19 @@
         <div class="flexContainer">
             <div class="shadow s-col-1 m-col-2 l-col-3">
                 <h3>Introducing Skynet</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p> <a href="#"> Read More</a>
-                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                <div class="link"><a href="#"> Read More</a></div>
+            </div>
             <div class="shadow s-col-1 m-col-2 l-col-3">
                 <h3> Artificial Intelligence</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p> <a href="#"> Read More</a>
-                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                <div class="link"><a href="#"> Read More</a></div>
+            </div>
             <div class="shadow s-col-1 m-col-2 l-col-3">
                 <h3>Ubiquitious Technology</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p> <a href="#"> Read More</a>
-                </div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+                <div class="link"><a href="#"> Read More</a></div>
+            </div>
         </div>
     </div>
     <div id="about" class="section centered">
@@ -744,7 +776,7 @@
                 <a class="floatRight">Read More</a> </div>
         </div>
     </div>
-    <div id="newsletter" class="section flexContainer"> <input id="newsletterInput" type="text" placeholder="Email Address"> <button class="submit" >Subscribe</button>        </div>
+    <div id="newsletter" class="section flexContainer"> <input id="newsletterInput" type="text" placeholder="Email Address"> <button class="submit">Subscribe</button> </div>
     <div id="contact" class="section centered">
         <amp-position-observer on="enter:arriveContact" intersection-ratios="0.01" layout="nodisplay" once> </amp-position-observer>
         <h1 class="heading">Contact</h1>
@@ -754,7 +786,7 @@
             <div id="contactInfo" class="flexCol s-col-1 m-col-2"> <span>1234 West Ave J8 <br> Lancaster, CA 93534</span> <span>Dan.martinezavila@gmail.com</span> <span>661-974-9743</span>
                 </div>
             <div id="contactInputs" class="flexCol s-col-1 m-col-2"> <input type="text" placeholder="Your Name"> <input type="text" placeholder="Your Email"> <input type="text" placeholder="Subject">                <textarea
-                    placeholder="Your Message"></textarea> <button id="SendMessage" class="submit">Send Message </button>               </div>
+                    placeholder="Your Message"></textarea> <button id="SendMessage" class="submit">Send Message </button> </div>
         </div>
     </div>
     <div id="footer" class="section"> </div>
