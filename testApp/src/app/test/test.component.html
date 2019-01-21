@@ -1,0 +1,9 @@
+<input [(ngModel)] = "value" placeholder="Type Here">
+<input type="button" (click)="add(value)">
+<div *ngIf="many">
+  <ul>
+    <li *ngFor="let one of many">
+      {{one}}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,762 @@
+<!doctype html>
+<html ⚡>
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Hello, AMPs</title>
+    <link rel="canonical" href="http://example.ampproject.org/article-metadata.html">
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Open-source framework for publishing content",
+        "datePublished": "2015-10-07T12:02:41Z",
+        "image": [
+          "logo.jpg"
+        ]
+      }
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
+    <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
+    <style amp-custom>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        p {
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            line-height: 2;
+            font-weight: 300;
+            text-align: center
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        .s-col-1 {
+            width: 90%;
+            margin: 3%;
+            padding: 1%
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none
+        }
+
+        body {
+            margin: 0;
+            line-height: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        .banner {
+            height: 30px;
+            position: fixed;
+            background-color: white;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            right: 0
+        }
+
+        #navBar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            max-width: 1000px;
+            height: 30px;
+            background-color: white;
+            overflow: hidden;
+            margin: 0 auto;
+            z-index: 2
+        }
+
+        .fixedLeft {
+            position: absolute;
+            left: 0;
+        }
+
+        .fixedRight {
+            position: absolute;
+            right: 0;
+        }
+
+        .fullScreen {
+            height: 100vh;
+        }
+
+        #navMenu {
+            display: none;
+            margin: 0;
+            
+        }
+
+        #navMenu li {
+            list-style: none;
+            float: left;
+            margin: 0 5px
+        }
+
+        #title {
+            font-family: sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 56px;
+            color: #71c55d
+        }
+
+        .heading {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 45px;
+            font-weight: 100;
+            letter-spacing: 2px;
+        }
+
+        .subheading {
+            font-family: sans-serif;
+            font-size: 15px;
+            font-weight: 300;
+            text-transform: capitalize;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #navMenu a,
+        #navMenu a:visited {
+            color: black
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            text-align: center
+        }
+
+        .centered {
+            margin: auto;
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+
+        .wide {
+            width: 100vw
+        }
+
+        .centerImg {
+            margin: 0 auto;
+        }
+
+        .section {
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 125px;
+            padding-bottom: 75px;
+        }
+
+        .clickMe {
+            border-radius: 50px;
+            border: solid;
+            padding: 10px 20px;
+            text-align: center;
+            color: green;
+            text-decoration: none;
+        }
+
+        .buyNow,
+        .buyNow a:visited {
+            background-color: green;
+            color: white
+        }
+
+        .link {
+            text-align: center;
+            margin: 20px;
+            color: grey
+        }
+
+        #welcome {
+            background-image: url("./images/hero-bg.png");
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-attachment: fixed;
+            background-size: contain
+        }
+
+        .flexContainer {
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column
+        }
+
+        .flexContainer > * {
+            margin-bottom: 5%;
+        }
+
+        .flexCol {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flexCol>* {
+            margin-bottom: 20px
+        }
+
+        #contactForm {
+            align-items: flex-start;
+        }
+
+        
+
+        .floatLeft {
+            float: left;
+        }
+
+        .floatRight {
+            float: right;
+        }
+
+        #Reviews>*,
+        #Prices>*,
+        .shadow:hover {
+            box-shadow: 1px 1px 3px 1px grey
+        }
+
+        #newsletter {
+            background-attachment: fixed;
+            background-image: url("./images/newsletter-bg.jpg");
+            background-size: cover
+        }
+
+        #footer {
+            background-color: rgb(51, 51, 51)
+        }
+
+        #contactInputs>* {
+            width: 25vw
+        }
+
+        #newsletterInput {
+            width: 300px;
+            height: 40px;
+            text-align: center
+        }
+
+        .submit {
+            border: none;
+            background-color: #71c55d;
+            color: white;
+            width: 120px;
+            height: 40px;
+        }
+
+        #aboutSpan {
+            font-weight: 700;
+        }
+
+        #aboutHeader {
+            text-align: left;
+            font-size: 39px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: 100;
+        }
+
+        .text-left {
+            text-align: left
+        }
+
+        @keyframes arrive {
+            0% {
+                opacity: 0;
+                transform: translateY(110%)
+            }
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        @media only screen and (min-width:576px) {
+            .m-col-2 {
+                width: 45%;
+                margin: 5vw 1%
+            }
+            .flexContainer {
+                flex-direction: row;
+            }
+        }
+
+        @media only screen and (min-width:992px) {
+            .l-col-3 {
+                width: 30%;
+                margin: 0 1%;
+                padding: 1%
+            }
+            .l-col-4 {
+                width: 22%;
+                margin: 0 1%;
+                padding: 0%
+            }
+            .flexContainer {
+                flex-direction: row;
+            }
+            #navMenu {
+                display: inline;
+            }
+
+            #navIcon {
+                display: none;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            .centered {
+                padding-left: 20%;
+                padding-right: 20%;
+            }
+        }
+    </style>
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+            to {
+                visibility: visible
+            }
+        }
+    </style><noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style></noscript> </head>
+<body>
+    <amp-animation id="arriveAbout" layout="nodisplay">
+        <script type="application/json">
+                    {
+                        "selector": "#about",
+                        "duration": "1s",
+                        "direction" : "normal",
+                        "animations" : [{
+                            "keyframes" : "arrive"
+                        }]
+                    }
+                </script>
+    </amp-animation>
+    <amp-animation id="arriveFeatures" layout="nodisplay">
+        <script type="application/json">
+                {
+                    "selector": "#features",
+                    "duration": "1s",
+                    "direction" : "normal",
+                    "animations" : [{
+                        "keyframes" : "arrive"
+                    }]
+                }
+            </script>
+    </amp-animation>
+    <amp-animation id="arriveScreenshots" layout="nodisplay">
+        <script type="application/json">
+                {
+                    "selector": "#screenshots",
+                    "duration": "1s",
+                    "direction" : "normal",
+                    "animations" : [{
+                        "keyframes" : "arrive"
+                    }]
+                }
+            </script>
+    </amp-animation>
+    <amp-animation id="arriveTeam" layout="nodisplay">
+        <script type="application/json">
+                {
+                    "selector": "#team",
+                    "duration": "1s",
+                    "direction" : "normal",
+                    "animations" : [{
+                        "keyframes" : "arrive"
+                    }]
+                }
+            </script>
+    </amp-animation>
+    <amp-animation id="arrivePricing" layout="nodisplay">
+        <script type="application/json">
+                {
+                    "selector": "#pricing",
+                    "duration": "1s",
+                    "direction" : "normal",
+                    "animations" : [{
+                        "keyframes" : "arrive"
+                    }]
+                }
+            </script>
+    </amp-animation>
+    <amp-animation id="arriveBlog" layout="nodisplay">
+        <script type="application/json">
+                {
+                    "selector": "#blog",
+                    "duration": "1s",
+                    "direction" : "normal",
+                    "animations" : [{
+                        "keyframes" : "arrive"
+                    }]
+                }
+            </script>
+    </amp-animation>
+    <amp-animation id="arriveContact" layout="nodisplay">
+        <script type="application/json">
+                {
+                    "selector": "#contact",
+                    "duration": "1s",
+                    "direction" : "normal",
+                    "animations" : [{
+                        "keyframes" : "arrive"
+                    }]
+                }
+            </script>
+    </amp-animation>
+    <amp-animation id="arriveVideo" layout="nodisplay">
+        <script type="application/json">
+                {
+                    "selector": "#video",
+                    "duration": "1s",
+                    "direction" : "normal",
+                    "animations" : [{
+                        "keyframes" : "arrive"
+                    }]
+                }
+            </script>
+    </amp-animation>
+    <amp-animation id="arriveReviews" layout="nodisplay">
+        <script type="application/json">
+                {
+                    "selector": "#Reviews",
+                    "duration": "1s",
+                    "direction" : "normal",
+                    "animations" : [{
+                        "keyframes" : "arrive"
+                    }]
+                }
+            </script>
+    </amp-animation>
+    <div class="banner">
+        <div id="navBar"> <span class="fixedLeft">AMP Template</span> <div class="fixedRight">
+                <ul id="navMenu">
+                    <li><a href="#welcome">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#screenshots">Screenshots</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a>Dropdown</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <i id="navIcon" class="material-icons">menu</i>
+
+            </div>
+        </div>
+    </div>
+    <div id="welcome" class="fullScreen section">
+        <h1 id="title"> Welcome to my AMP Site </h1>
+        <h3> Elegant Bootstrap Template for Startups, Apps & more... </h3>
+        <amp-img class="centerImg" src="./images/hero-img.png"
+            width="768" style="max-width:500px" height="398" layout="responsive"> </amp-img>
+        <div class="link"> <a class="clickMe" href="#welcome">Get Started</a> </div>
+    </div>
+    <div class="section centered">
+        <h1 class="heading"> Responsive and User Friendly </h1>
+        <h4 class="subheading"> Integer cursus bibendum augue ac cursus </h4>
+        <div class="flexContainer">
+            <div class="shadow s-col-1 m-col-2 l-col-3">
+                <h3>Introducing Skynet</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p> <a href="#"> Read More</a>
+                </div>
+            <div class="shadow s-col-1 m-col-2 l-col-3">
+                <h3> Artificial Intelligence</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p> <a href="#"> Read More</a>
+                </div>
+            <div class="shadow s-col-1 m-col-2 l-col-3">
+                <h3>Ubiquitious Technology</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p> <a href="#"> Read More</a>
+                </div>
+        </div>
+    </div>
+    <div id="about" class="section centered">
+        <amp-position-observer on="enter:arriveAbout" intersection-ratios="0.01" layout="nodisplay" once> </amp-position-observer>
+        <div class="flexContainer">
+            <amp-img class="floatLeft" src="./images/about-img.png" width="500" height="1000" layout="responsive" sizes="(max-width: 576px) 90vw, 250px">
+            </amp-img>
+            <div id="Benefits" class="floatRight s-col-1 m-col-2 l-col-3">
+                <h1 id="aboutHeader"><span id="aboutSpan">AMP</span> Accelerated Mobile Pages</h1>
+                <p class="text-left"> Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat </p>
+                <ul>
+                    <li>Fast</li>
+                    <li>Reliable </li>
+                    <li>User Friendly</li>
+                    <li>Mobile First</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="features" class="section">
+        <amp-position-observer on="enter:arriveFeatures" intersection-ratios="0.01" layout="nodisplay" once> </amp-position-observer>
+        <h1 class="heading"> Amazing Features </h1>
+        <h4 class="subheading">Integer cursus bibendum augue ac cursus . </h4>
+        <div class="flexContainer centered">
+            <div class="s-col-1 m-col-2 l-col-4 shadow">
+                <h5>Feature </h5>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+            <div class="s-col-1 m-col-2 l-col-4 shadow">
+                <h5>Feature </h5>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+            <div class="s-col-1 m-col-2 l-col-4 shadow">
+                <h5>Feature </h5>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+            <div class="s-col-1 m-col-2 l-col-4 shadow">
+                <h5>Feature </h5>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+            <div class="s-col-1 m-col-2 l-col-4 shadow">
+                <h5>Feature </h5>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+            <div class="s-col-1 m-col-2 l-col-4 shadow">
+                <h5>Feature </h5>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+            <div class="s-col-1 m-col-2 l-col-4 shadow">
+                <h5>Feature </h5>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+            <div class="s-col-1 m-col-2 l-col-4 shadow">
+                <h5>Feature </h5>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+            </div>
+        </div>
+    </div>
+    <div id="screenshots" class="section centered">
+        <amp-position-observer on="enter:arriveScreenshots" intersection-ratios="0.01" layout="nodisplay" once> </amp-position-observer>
+        <h1 class="heading">Gallery</h1>
+        <h4 class="subheading">Integer cursus bibendum augue ac cursus .</h4>
+        <amp-carousel layout="fixed-height" width="auto" height="400">
+            <amp-img src="./images/1.jpg" width="200" height="300"> </amp-img>
+            <amp-img src="./images/2.jpg" width="200" height="300"> </amp-img>
+            <amp-img src="./images/3.jpg" width="200" height="300"> </amp-img>
+            <amp-img src="./images/4.jpg" width="200" height="300"> </amp-img>
+            <amp-img src="./images/5.jpg" width="200" height="300"> </amp-img>
+        </amp-carousel>
+    </div>
+    <div id="video" class="section">
+        <amp-position-observer on="enter:arriveVideo" intersection-ratios="0.01" layout="nodisplay" once> </amp-position-observer>
+        <amp-video controls height="400" src="./none.mp4" layout="fixed-height" poster="./about-img.png">
+            <div fallback>
+                <p>This is a fallback</p>
+            </div>
+        </amp-video>
+    </div>
+    <div id="team" class="section">
+        <amp-position-observer on="enter:arriveTeam" intersection-ratios="0.01" layout="nodisplay" once> </amp-position-observer>
+        <h1 class="heading">Team Members</h1>
+        <div class="flexContainer centered">
+            <div class="s-col-1 m-col-2 l-col-4">
+                <amp-img src="./images/hero-img.png" layout="responsive" width="400" height="400"> </amp-img>
+            </div>
+            <div class="s-col-1 m-col-2 l-col-4">
+                <amp-img src="./images/hero-img.png" layout="responsive" width="400" height="400"> </amp-img>
+            </div>
+            <div class="s-col-1 m-col-2 l-col-4">
+                <amp-img src="./images/hero-img.png" layout="responsive" width="400" height="400"> </amp-img>
+            </div>
+            <div class="s-col-1 m-col-2 l-col-4">
+                <amp-img src="./images/hero-img.png" layout="responsive" width="400" height="400"> </amp-img>
+            </div>
+        </div>
+    </div>
+    <div id="Reviews" class="section centered">
+        <amp-position-observer on="enter:arriveReviews" intersection-ratios="0.01" layout="nodisplay" once> </amp-position-observer>
+        <div class="shadow">
+            <h1 class="heading">Reviews</h1>
+            <amp-carousel type="slides" layout="responsive" width="400" height="100">
+                <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                    it to make a type specimen book. It has survived not only five centuries. </p>
+                <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                    it to make a type specimen book. It has survived not only five centuries. </p>
+                <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                    standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                    it to make a type specimen book. It has survived not only five centuries. </p>
+            </amp-carousel>
+        </div>
+    </div>
+    <div id="pricing" class="section">
+        <amp-position-observer on="enter:arrivePricing" intersection-ratios="0.01" layout="nodisplay" once> </amp-position-observer>
+        <h1 class="heading">Pricing</h1>
+        <div id="Prices" class="flexContainer centered">
+            <div class="s-col-1 m-col-2 l-col-4 shadow">
+                <h3>Basic</h3>
+                <h1>$9</h1>
+                <h4>4 GB RAM</h4>
+                <hr>
+                <h4>6/20 Tech Support</h4>
+                <hr>
+                <h4>20 GB Cloud Storage</h4>
+                <hr>
+                <h4>Monthly Backups</h4>
+                <hr>
+                <h4>Water Resistant</h4>
+                <hr>
+                <div class="link clickMe buyNow"><a href="#welcome">Buy Now</a></div>
+            </div>
+            <div class="s-col-1 m-col-2 l-col-4 shadow">
+                <h3>Basic</h3>
+                <h1>$9</h1>
+                <h4>4 GB RAM</h4>
+                <hr>
+                <h4>6/20 Tech Support</h4>
+                <hr>
+                <h4>20 GB Cloud Storage</h4>
+                <hr>
+                <h4>Monthly Backups</h4>
+                <hr>
+                <h4>Water Resistant</h4>
+                <hr>
+                <div class="link clickMe buyNow"><a href="#welcome">Buy Now</a></div>
+            </div>
+            <div class="s-col-1 m-col-2 l-col-4 shadow">
+                <h3>Basic</h3>
+                <h1>$9</h1>
+                <h4>4 GB RAM</h4>
+                <hr>
+                <h4>6/20 Tech Support</h4>
+                <hr>
+                <h4>20 GB Cloud Storage</h4>
+                <hr>
+                <h4>Monthly Backups</h4>
+                <hr>
+                <h4>Water Resistant</h4>
+                <hr>
+                <div class="link clickMe buyNow"><a href="#welcome">Buy Now</a></div>
+            </div>
+            <div class="s-col-1 m-col-2 l-col-4 shadow">
+                <h3>Basic</h3>
+                <h1>$9</h1>
+                <h4>4 GB RAM</h4>
+                <hr>
+                <h4>6/20 Tech Support</h4>
+                <hr>
+                <h4>20 GB Cloud Storage</h4>
+                <hr>
+                <h4>Monthly Backups</h4>
+                <hr>
+                <h4>Water Resistant</h4>
+                <hr>
+                <div class="link clickMe buyNow"><a href="#welcome">Buy Now</a></div>
+            </div>
+        </div>
+    </div>
+    <div id="blog" class="section">
+        <amp-position-observer on="enter:arriveBlog" intersection-ratios="0.01" layout="nodisplay" once> </amp-position-observer>
+        <h1 class="heading">Latest Posts</h1>
+        <h4 class="subheading">Integer cursus bibendum augue ac cursus .</h4>
+        <div class="centered flexContainer">
+            <div class="s-col-1 m-col-2 l-col-3 shadow">
+                <amp-img src="./images/hero-img.png" width="768" style="max-width:768px" height="398" layout="responsive"> </amp-img>
+                <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry </p> <span class="floatLeft"> Date</span>
+                <a class="floatRight">Read More</a> </div>
+            <div class="s-col-1 m-col-2 l-col-3 shadow">
+                <amp-img src="./images/hero-img.png" width="768" style="max-width:768px" height="398" layout="responsive"> </amp-img>
+                <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry </p> <span class="floatLeft"> Date</span>
+                <a class="floatRight">Read More</a> </div>
+            <div class="s-col-1 m-col-2 l-col-3 shadow">
+                <amp-img src="./images/hero-img.png" width="768" style="max-width:768px" height="398" layout="responsive"> </amp-img>
+                <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry </p> <span class="floatLeft"> Date</span>
+                <a class="floatRight">Read More</a> </div>
+        </div>
+    </div>
+    <div id="newsletter" class="section flexContainer"> <input id="newsletterInput" type="text" placeholder="Email Address"> <button class="submit" >Subscribe</button>        </div>
+    <div id="contact" class="section centered">
+        <amp-position-observer on="enter:arriveContact" intersection-ratios="0.01" layout="nodisplay" once> </amp-position-observer>
+        <h1 class="heading">Contact</h1>
+        <h4 class="subheading">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</h4>
+        <div id="contactForm"
+            class="flexContainer">
+            <div id="contactInfo" class="flexCol s-col-1 m-col-2"> <span>1234 West Ave J8 <br> Lancaster, CA 93534</span> <span>Dan.martinezavila@gmail.com</span> <span>661-974-9743</span>
+                </div>
+            <div id="contactInputs" class="flexCol s-col-1 m-col-2"> <input type="text" placeholder="Your Name"> <input type="text" placeholder="Your Email"> <input type="text" placeholder="Subject">                <textarea
+                    placeholder="Your Message"></textarea> <button id="SendMessage" class="submit">Send Message </button>               </div>
+        </div>
+    </div>
+    <div id="footer" class="section"> </div>
+</body>
+</html>
